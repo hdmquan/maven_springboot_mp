@@ -1,0 +1,38 @@
+# Docker ignore file for Wiki Admin Application
+# Created for BIT235 Assessment 2 - Part 1
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Logs
+*.log
+
+# Database files (will be created in container)
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+
+# Keep target directory for JAR file
+!target/mvc-app-0.0.1-SNAPSHOT.jar

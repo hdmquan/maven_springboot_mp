@@ -1,0 +1,189 @@
+<!-- Alan Huynh | s1557984 | alan@protoflow.com.au -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Administrator Registration</title>
+    <style>
+        /* 
+         * Wiki Administrator Registration Page Styles
+         * Created for BIT235 Assessment 2 - Part 1
+         * Student: [Your Name] | Student ID: [Your Student ID]
+         */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .register-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #000000;
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .register-header h1 {
+            color: #000000;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .register-header p {
+            color: #333333;
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #000000;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #cccccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #000000;
+        }
+        
+        .register-button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .register-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .error-message {
+            background: #f0f0f0;
+            color: #000000;
+            padding: 0.75rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            border: 1px solid #000000;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .login-link a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #333333;
+            font-size: 0.8rem;
+        }
+        
+        .password-requirements {
+            font-size: 0.8rem;
+            color: #333333;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Wiki Administrator Registration</h1>
+            <p>Create a new administrator account</p>
+        </div>
+        
+        <!-- Display error message if registration fails -->
+        <div th:if="${error}" class="error-message" th:text="${error}"></div>
+        
+        <!-- Registration Form -->
+        <form th:action="@{/register}" method="post">
+            <div class="form-group">
+                <label for="username">Username: *</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Enter your username" th:value="${param.username}">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password: *</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Enter your password">
+                <div class="password-requirements">Password must be at least 6 characters long</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password: *</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required 
+                       placeholder="Confirm your password">
+            </div>
+            
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" 
+                       placeholder="Enter your full name (optional)" th:value="${param.fullName}">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="Enter your email (optional)" th:value="${param.email}">
+            </div>
+            
+            <button type="submit" class="register-button">Register</button>
+        </form>
+        
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+        
+        <div class="footer">
+            <p>BIT235 Assessment 2 - Part 1<br>Wiki Administrator System</p>
+        </div>
+    </div>
+</body>
+</html>

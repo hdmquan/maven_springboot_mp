@@ -1,0 +1,270 @@
+<!-- Alan Huynh | s1557984 | alan@protoflow.com.au -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Administrator Console</title>
+    <style>
+        /* 
+         * Wiki Administrator Welcome Page Styles
+         * Created for BIT235 Assessment 2 - Part 1
+         * Student: [Your Name] | Student ID: [Your Student ID]
+         */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: #000000;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .logout-button {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .logout-button:hover {
+            background: #333333;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .welcome-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #000000;
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-message {
+            background: #f0f0f0;
+            color: #000000;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #000000;
+        }
+        
+        .admin-info {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            border: 1px solid #000000;
+        }
+        
+        .admin-info h3 {
+            color: #000000;
+            margin-top: 0;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #000000;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #333333;
+            font-size: 0.9rem;
+        }
+        
+        .info-value {
+            color: #000000;
+            margin-top: 0.25rem;
+        }
+        
+        .features-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #000000;
+        }
+        
+        .features-section h2 {
+            color: #000000;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #cccccc;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-description {
+            color: #333333;
+            font-size: 0.9rem;
+        }
+        
+        .coming-soon {
+            background: #f0f0f0;
+            color: #000000;
+            padding: 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #000000;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Wiki Administrator Console</h1>
+        <a href="/login" class="logout-button">Logout</a>
+    </div>
+    
+    <div class="main-container">
+        <!-- Welcome Message -->
+        <div class="welcome-card">
+            <div th:if="${welcomeMessage}" class="welcome-message" th:text="${welcomeMessage}"></div>
+            
+            <h2>Welcome to the Wiki Administrator System</h2>
+            <p>You have successfully logged into the Wiki Administrator Console. This is Part 1 of the BIT235 Assessment 2 implementation, focusing on secure user authentication.</p>
+            
+            <!-- Admin Information -->
+            <div th:if="${admin}" class="admin-info">
+                <h3>Administrator Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Username</div>
+                        <div class="info-value" th:text="${admin.username}"></div>
+                    </div>
+                    <div class="info-item" th:if="${admin.fullName}">
+                        <div class="info-label">Full Name</div>
+                        <div class="info-value" th:text="${admin.fullName}"></div>
+                    </div>
+                    <div class="info-item" th:if="${admin.email}">
+                        <div class="info-label">Email</div>
+                        <div class="info-value" th:text="${admin.email}"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Admin ID</div>
+                        <div class="info-value" th:text="${admin.id}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2>Wiki System Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <div class="feature-title">Secure Authentication</div>
+                    <div class="feature-description">
+                        Password encryption using BCrypt algorithm for maximum security
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-title">Article Management</div>
+                    <div class="feature-description">
+                        Create, edit, and manage wiki articles
+                        <div class="coming-soon">Coming in Part 2</div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">User Management</div>
+                    <div class="feature-description">
+                        Manage user accounts and permissions
+                        <div class="coming-soon">Coming in Part 3</div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Analytics Dashboard</div>
+                    <div class="feature-description">
+                        View system statistics and usage reports
+                        <div class="coming-soon">Coming in Part 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>BIT235 Assessment 2 - Part 1 | Wiki Administrator System<br>
+        Student: [Your Name] | Student ID: [Your Student ID]</p>
+    </div>
+</body>
+</html>

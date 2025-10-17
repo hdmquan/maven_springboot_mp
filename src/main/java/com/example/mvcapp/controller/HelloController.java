@@ -1,3 +1,5 @@
+// Alan Huynh | s1557984 | alan@protoflow.com.au
+
 package com.example.mvcapp.controller;
 
 import lombok.AllArgsConstructor;
@@ -27,5 +29,14 @@ public class HelloController {
     @ResponseBody
     public String calc(int num1, int num2) {
         return String.valueOf(num1 + num2);
+    }
+    
+    /**
+     * Redirect root path to login page
+     * @return redirect to login page
+     */
+    @GetMapping("/")
+    public String redirectToLogin() {
+        return "redirect:/login";
     }
 }

@@ -1,3 +1,5 @@
+// Alan Huynh | s1557984 | alan@protoflow.com.au
+
 package com.example.mvcapp.util;
 
 import java.util.Base64;

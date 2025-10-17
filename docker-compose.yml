@@ -1,0 +1,13 @@
+services:
+  wiki-admin-app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount SQLite database file to persist data
+      - ./data:/app/data
+    environment:
+      # Override database path to use mounted volume
+      - SPRING_DATASOURCE_URL=jdbc:sqlite:/app/data/wiki_admin.db
+    restart: unless-stopped
+    container_name: wiki-admin-app
