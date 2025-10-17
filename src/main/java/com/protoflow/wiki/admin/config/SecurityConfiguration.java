@@ -1,6 +1,6 @@
 // Alan Huynh | s1557984 | alan@protoflow.com.au
 
-package com.example.mvcapp.config;
+package com.protoflow.wiki.admin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,13 +11,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
- * Simplified Spring Security configuration for Wiki Administrator system
- * Created for BIT235 Assessment 2 - Part 1
- * Student: [Your Name] | Student ID: [Your Student ID]
+ * Security configuration for Wiki Administrator system
+ * BIT235 Assessment 2 - Part 1
  */
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfiguration {
     
     /**
      * Configure password encoder bean for BCrypt hashing
@@ -29,7 +28,7 @@ public class SecurityConfig {
     }
     
     /**
-     * Configure simplified security filter chain
+     * Configure security filter chain
      * @param http HttpSecurity configuration
      * @return SecurityFilterChain
      * @throws Exception if configuration fails
@@ -37,7 +36,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            // Disable CSRF for simplicity
+            // Disable CSRF for simplicity (in production, CSRF should be enabled)
             .csrf(csrf -> csrf.disable())
             
             // Configure authorization rules

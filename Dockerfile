@@ -1,3 +1,5 @@
+# Alan Huynh | s1557984 | alan@protoflow.com.au
+
 # Use OpenJDK 17 runtime image
 FROM openjdk:17-jdk-slim
 
@@ -5,7 +7,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the pre-built JAR file
-COPY target/mvc-app-0.0.1-SNAPSHOT.jar app.jar
+COPY target/wiki-administrator-1.0.0.jar app.jar
 
 # Create directory for SQLite database
 RUN mkdir -p /app/data

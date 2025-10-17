@@ -35,4 +35,4 @@ docker-compose.yml
 *.temp
 
 # Keep target directory for JAR file
-!target/mvc-app-0.0.1-SNAPSHOT.jar
+!target/wiki-administrator-1.0.0.jar

@@ -185,7 +185,7 @@
 <body>
     <div class="header">
         <h1>Wiki Administrator Console</h1>
-        <a href="/login" class="logout-button">Logout</a>
+        <a href="/admin/login" class="logout-button">Logout</a>
     </div>
     
     <div class="main-container">
@@ -197,24 +197,24 @@
             <p>You have successfully logged into the Wiki Administrator Console. This is Part 1 of the BIT235 Assessment 2 implementation, focusing on secure user authentication.</p>
             
             <!-- Admin Information -->
-            <div th:if="${admin}" class="admin-info">
+            <div th:if="${administrator}" class="admin-info">
                 <h3>Administrator Information</h3>
                 <div class="info-grid">
                     <div class="info-item">
                         <div class="info-label">Username</div>
-                        <div class="info-value" th:text="${admin.username}"></div>
+                        <div class="info-value" th:text="${administrator.username}"></div>
                     </div>
-                    <div class="info-item" th:if="${admin.fullName}">
+                    <div class="info-item" th:if="${administrator.fullName}">
                         <div class="info-label">Full Name</div>
-                        <div class="info-value" th:text="${admin.fullName}"></div>
+                        <div class="info-value" th:text="${administrator.fullName}"></div>
                     </div>
-                    <div class="info-item" th:if="${admin.email}">
+                    <div class="info-item" th:if="${administrator.email}">
                         <div class="info-label">Email</div>
-                        <div class="info-value" th:text="${admin.email}"></div>
+                        <div class="info-value" th:text="${administrator.email}"></div>
                     </div>
                     <div class="info-item">
                         <div class="info-label">Admin ID</div>
-                        <div class="info-value" th:text="${admin.id}"></div>
+                        <div class="info-value" th:text="${administrator.id}"></div>
                     </div>
                 </div>
             </div>

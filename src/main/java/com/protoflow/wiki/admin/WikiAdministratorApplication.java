@@ -1,15 +1,18 @@
 // Alan Huynh | s1557984 | alan@protoflow.com.au
 
-package com.example.mvcapp;
+package com.protoflow.wiki.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Main application class for Wiki Administrator System
+ * BIT235 Assessment 2 - Part 1
+ */
 @SpringBootApplication
-public class MvcAppApplication {
+public class WikiAdministratorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MvcAppApplication.class, args);
+        SpringApplication.run(WikiAdministratorApplication.class, args);
     }
-
 }

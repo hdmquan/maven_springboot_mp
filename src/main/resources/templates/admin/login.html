@@ -148,7 +148,7 @@
         <div th:if="${error}" class="error-message" th:text="${error}"></div>
         
         <!-- Login Form -->
-        <form th:action="@{/login}" method="post">
+        <form th:action="@{/admin/login}" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required 
@@ -165,7 +165,7 @@
         </form>
         
         <div class="register-link">
-            <p>Don't have an account? <a href="/register">Register here</a></p>
+            <p>Don't have an account? <a href="/admin/register">Register here</a></p>
         </div>
         
         <div class="footer">

@@ -1,3 +1,5 @@
+# Alan Huynh | s1557984 | alan@protoflow.com.au
+
 # Wiki Administrator Application - Docker Setup
 
 ## Overview

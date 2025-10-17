@@ -1,3 +1,5 @@
+# Alan Huynh | s1557984 | alan@protoflow.com.au
+
 # Spring Boot MVC Application - BIT235
 
 This is a Spring Boot MVC application created following the course guidelines for BIT235 Object Oriented Programming.
